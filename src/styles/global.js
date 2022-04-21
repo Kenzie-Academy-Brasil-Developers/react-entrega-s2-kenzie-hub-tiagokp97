@@ -18,10 +18,11 @@ export default createGlobalStyle`
     --grey-20: #343B41;
     --grey-30: #212529;
     --grey-40: #121214;
+    --white: #F8F9FA;
 }
 
 body {
-    background: #121214;
+    background: var(--grey-40);
     color: black;
 }
 

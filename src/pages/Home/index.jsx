@@ -1,13 +1,5 @@
 import React from "react";
-
+import Input from "../../components/Input";
 export default function Home() {
-  return (
-    <div>
-      Home
-      <p>Aqui</p>
-      <p>Aqui</p>
-      <p>Aqui</p>
-      <p>Aqui</p>
-    </div>
-  );
+  return <div>Home</div>;
 }
