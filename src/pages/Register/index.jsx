@@ -2,17 +2,19 @@ import React from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
 import { StyledButton } from "../../components/Button/styles";
-import Input from "../../components/Input";
 import { StyledForm } from "../../components/Form/styles";
-import kenzieIcon from "../../assets/kenzieIcon.svg";
 import { FaEye } from "react-icons/fa";
+import Input from "../../components/Input";
+import kenzieIcon from "../../assets/kenzieIcon.svg";
+import StyledSelect from "../../components/Select/Select";
+
 export default function Register() {
   return (
     <>
       <header>
         <div className="container-header">
           <img src={kenzieIcon} alt="logo" />
-          <Link to="/">Voltar</Link>
+          <Link to="/login">Voltar</Link>
         </div>
       </header>
 
@@ -27,11 +29,8 @@ export default function Register() {
           <Input label="Senha" placeholder="Digite aqui seu senha" />
           <Input label="Confirmar senha" placeholder="Digite aqui seu nome" />
           <p className="modulo">Selecionar módulo</p>
-          <select>
-            <option>Primeiro módulo</option>
-            <option>Segundo módulo</option>
-            <option>Terceiro módulo</option>
-          </select>
+          <StyledSelect />
+
           <StyledButton color={"white"} background={"#59323F"}>
             Cadastrar
           </StyledButton>

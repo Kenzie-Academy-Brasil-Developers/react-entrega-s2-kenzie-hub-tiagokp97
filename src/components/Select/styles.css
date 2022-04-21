@@ -1,0 +1,22 @@
+.css-1ruyt58-Control {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--grey-20);
+  color: var(--grey-10);
+  border-radius: 4px;
+  margin-bottom: 18px;
+  color: var(--grey-10) !important;
+}
+.css-14el2xx-placeholder {
+  color: var(--grey-10) !important;
+
+  padding-left: 5px;
+}
+
+.css-1jwi8f4-singleValue {
+  color: var(--grey-10) !important;
+}
+
+.css-7kp0ee-menu {
+  max-height: 100px;
+}
