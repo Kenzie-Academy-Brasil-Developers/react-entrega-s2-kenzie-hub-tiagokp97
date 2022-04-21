@@ -58,3 +58,26 @@ a {
   line-height: 25px;
   text-align: center;
 }
+
+select {
+  width: 265px;
+  background-color: var(--grey-20);
+  border: none;
+  height: 38px;
+  border: none;
+  border-radius: 4px;
+  color: var(--grey-10);
+  padding-left: 10px;
+  font-size: 16px;
+  margin-bottom: 18px;
+  padding-right: 30px;
+}
+
+.modulo {
+  margin-bottom: 18px;
+  font-size: 10px;
+  align-self: flex-start;
+  color: var(--white);
+  position: relative;
+  left: -15px;
+}

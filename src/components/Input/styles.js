@@ -6,12 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 21px;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  display: flex;
 
   p {
     margin-bottom: 18px;
@@ -23,16 +18,23 @@ export const Container = styled.div`
 export const InputContainer = styled.div`
   border-radius: 4px;
   background: var(--grey-20);
-  padding: 1rem;
   display: flex;
   transition: 0.4;
   width: 265px;
   height: 38px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  svg {
+    color: var(--grey-10);
+  }
 
   input {
-    background: transparent;
+    width: 90%;
+    align-items: center;
     flex: 1;
-    border: none;
+    border: 0;
+    background: transparent;
     color: var(--white);
 
     ::placeholder {
