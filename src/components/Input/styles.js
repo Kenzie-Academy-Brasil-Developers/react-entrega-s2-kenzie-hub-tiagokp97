@@ -27,11 +27,13 @@ export const InputContainer = styled.div`
   display: flex;
   transition: 0.4;
   width: 265px;
+  height: 38px;
 
   input {
     background: transparent;
     flex: 1;
     border: none;
+    color: var(--white);
 
     ::placeholder {
       color: var(--grey-10);

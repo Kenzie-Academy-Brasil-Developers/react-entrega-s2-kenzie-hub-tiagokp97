@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
-import { Container } from "../../components/Input/styles";
 import { StyledButton } from "../../components/Button/styles";
 import Input from "../../components/Input";
 import { StyledForm } from "../../components/Form/styles";
