@@ -7,4 +7,9 @@ export const StyledButton = styled.button`
   height: 38px;
   border: none;
   border-radius: 4px;
+
+  :hover {
+    background-color: ${(props) => props.hover};
+    filter: ${(props) => props.brightness};
+  }
 `;

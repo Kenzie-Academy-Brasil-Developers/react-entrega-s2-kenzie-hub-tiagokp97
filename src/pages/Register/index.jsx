@@ -3,7 +3,6 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import { StyledButton } from "../../components/Button/styles";
 import { StyledForm } from "../../components/Form/styles";
-import { FaEye } from "react-icons/fa";
 import Input from "../../components/Input";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
 import StyledSelect from "../../components/Select/Select";
@@ -31,7 +30,11 @@ export default function Register() {
           <p className="modulo">Selecionar módulo</p>
           <StyledSelect />
 
-          <StyledButton color={"white"} background={"#59323F"}>
+          <StyledButton
+            color={"white"}
+            background={"#59323F"}
+            brightness={"brightness(0.8)"}
+          >
             Cadastrar
           </StyledButton>
         </StyledForm>

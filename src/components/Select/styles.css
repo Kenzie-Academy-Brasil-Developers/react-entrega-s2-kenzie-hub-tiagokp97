@@ -6,6 +6,7 @@
   border-radius: 4px;
   margin-bottom: 18px;
   color: var(--grey-10) !important;
+  border: solid 2px var(--grey-20);
 }
 .css-14el2xx-placeholder {
   color: var(--grey-10) !important;
@@ -19,4 +20,8 @@
 
 .css-7kp0ee-menu {
   max-height: 100px;
+}
+
+.css-1ruyt58-Control:focus-within {
+  border: var(--white) solid 2px;
 }
