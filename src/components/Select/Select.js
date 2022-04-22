@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import { useForm, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import "./styles.css";
 
 export default function StyledSelect({ control }) {
@@ -58,7 +58,7 @@ export default function StyledSelect({ control }) {
             isSearchable
           />
         )}
-        name={"module"}
+        // name={"module"}
       />
     </div>
   );
