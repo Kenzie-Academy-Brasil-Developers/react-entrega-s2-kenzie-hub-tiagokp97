@@ -85,7 +85,7 @@ export default function Login({ authenticated, setAuthenticated }) {
             background={"#FF577F"}
             hover={"#FF427F"}
           >
-            Cadastrar
+            Entrar
           </StyledButton>
           <p className="text">Ainda não possui uma conta?</p>
 

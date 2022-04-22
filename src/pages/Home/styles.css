@@ -1,0 +1,158 @@
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav > div {
+  display: flex;
+  width: 750px;
+  justify-content: space-between;
+  margin-top: 29px;
+}
+
+nav > div > button {
+  width: 55px;
+  height: 32px;
+  background-color: var(--grey-20);
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--white);
+}
+
+.home-header {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--grey-10);
+  border-bottom: 1px solid var(--grey-10);
+  height: 117px;
+}
+
+.home-header > div {
+  display: flex;
+  width: 750px;
+  justify-content: space-between;
+}
+
+.home-header > div > div > p {
+  color: var(--white);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.home-header > div > div > h2 {
+  padding-top: 3px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.header-main {
+  display: flex;
+  justify-content: center;
+}
+
+.header-main > div {
+  width: 750px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-main > div > span {
+  color: var(--white);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.header-main > div > img:hover {
+  filter: brightness(1.2);
+}
+
+ul {
+  background-color: var(--grey-20);
+  height: 250px;
+  border-radius: 4px;
+  width: 95%;
+  margin: 0 auto;
+  max-width: 750px;
+}
+
+ul > div {
+  height: 22px;
+}
+
+ul > li {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--grey-40);
+  border-radius: 4px;
+  height: 48px;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  align-items: center;
+  width: 97%;
+}
+
+ul > li > p {
+  padding-left: 20px;
+  color: var(--white);
+}
+
+ul > li > span {
+  padding-right: 20px;
+  color: var(--white);
+}
+
+@media (max-width: 800px) {
+  nav > div {
+    padding: 20px;
+  }
+
+  .header-main > div {
+    padding: 20px;
+  }
+
+  .home-header > div {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  nav > div {
+    padding: 20px;
+  }
+
+  .home-header > div {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .home-header > div > div {
+    margin-top: 10px;
+  }
+
+  .header-main > div {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 800px) {
+  .header-main > div {
+    margin-bottom: 28px;
+  }
+}
