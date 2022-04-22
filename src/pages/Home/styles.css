@@ -90,8 +90,9 @@ nav > div > button:hover {
 
 ul {
   background-color: var(--grey-20);
-  height: 250px;
   border-radius: 4px;
+  max-height: 275px;
+  overflow-y: scroll;
   width: 95%;
   margin: 0 auto;
   max-width: 750px;
@@ -111,6 +112,13 @@ ul > li {
   margin-bottom: 16px;
   align-items: center;
   width: 97%;
+  transition: 0.4s;
+  border: solid 1px black;
+}
+
+ul > li:hover {
+  /* background-color: var(--grey-10); */
+  border: solid 1px var(--grey-10);
 }
 
 ul > li > p {

@@ -123,6 +123,7 @@ export default function Register({ authenticated }) {
             error={errors.option?.message}
             options={options}
             placeholder="Selecione o seu módulo"
+            valueName="course_module"
           />
           <p className="modulo">Bio</p>
 

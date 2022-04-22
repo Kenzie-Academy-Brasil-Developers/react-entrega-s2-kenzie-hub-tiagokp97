@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { Redirect } from "react-router-dom";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
 import defaultButton from "../../assets/defaultButton.svg";
 import ModalTecnologies from "../../components/ModalTecnologies";
 import ModalCreate from "../../components/ModalCreate";
+import api from "../../services/api";
 export default function Home({ authenticated, setAuthenticated }) {
   const [createModal, setCreateModal] = useState(false);
+  const [techId, setTechId] = useState(0);
   const [modal, setModal] = useState(false);
+  const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
+  const [id] = useState(JSON.parse(localStorage.getItem("Hub:userID")) || "");
+  const [techs, setTechs] = useState([]);
+
+  useEffect(() => {
+    const loadWorks = () => {
+      api.get(`/users/${id}`).then((response) => setTechs(response.data.techs));
+    };
+    loadWorks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [techs]);
+
   if (!authenticated) {
     return <Redirect to="/login" />;
   }
@@ -15,6 +29,11 @@ export default function Home({ authenticated, setAuthenticated }) {
   const logout = () => {
     localStorage.clear();
     setAuthenticated(false);
+  };
+
+  const pathModal = (id) => {
+    setTechId(id);
+    setCreateModal(true);
   };
 
   const options = [
@@ -60,22 +79,25 @@ export default function Home({ authenticated, setAuthenticated }) {
             />
           </div>
         </div>
-        <ModalTecnologies modal={modal} setModal={setModal} options={options} />
-        {/* <ModalCreate modal={modal} setModal={setModal} options={options} /> */}
+        <ModalTecnologies
+          createModal={createModal}
+          setCreateModal={setCreateModal}
+          options={options}
+          techId={techId}
+          setTechs={setTechs}
+          techs={techs}
+        />
+        <ModalCreate modal={modal} setModal={setModal} options={options} />
         <ul>
           <div></div>
-          <li>
-            <p>React JS</p>
-            <span>Intermediário</span>
-          </li>
-          <li>
-            <p>Material UI</p>
-            <span>Avançado</span>
-          </li>
-          <li>
-            <p>Styled-Components</p>
-            <span>Intermediário</span>
-          </li>
+          {techs.map((tech) => {
+            return (
+              <li key={tech.id} onClick={() => pathModal(tech.id)}>
+                <p>{tech.title}</p>
+                <span>{tech.status}</span>
+              </li>
+            );
+          })}
         </ul>
       </main>
     </>

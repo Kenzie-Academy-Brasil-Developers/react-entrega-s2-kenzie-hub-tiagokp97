@@ -3,7 +3,12 @@ import Select from "react-select";
 import { Controller } from "react-hook-form";
 import "./styles.css";
 
-export default function StyledSelect({ control, options, placeholder }) {
+export default function StyledSelect({
+  control,
+  options,
+  placeholder,
+  valueName,
+}) {
   const customStyles = {
     menu: (provided, state) => ({
       ...provided,
@@ -35,7 +40,7 @@ export default function StyledSelect({ control, options, placeholder }) {
   return (
     <div className="container-select">
       <Controller
-        name="course_module"
+        name={valueName}
         control={control}
         render={({ field: { onChange, value, name, ref } }) => (
           <Select

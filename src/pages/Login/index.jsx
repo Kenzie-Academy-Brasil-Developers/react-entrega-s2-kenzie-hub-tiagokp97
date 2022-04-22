@@ -34,9 +34,10 @@ export default function Login({ authenticated, setAuthenticated }) {
     api
       .post("/sessions", data)
       .then((response) => {
-        // console.log(response.data.token);
+        const { id } = response.data.user;
         const { token } = response.data;
         localStorage.setItem("Hub:token", JSON.stringify(token));
+        localStorage.setItem("Hub:userID", JSON.stringify(id));
         setAuthenticated(true);
         return history.push("/home");
       })

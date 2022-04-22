@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -6,20 +6,39 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../Input";
 import StyledSelect from "../Select/Select";
 import { StyledButton } from "../Button/styles";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 export default function ModalCreate({ modal, setModal, options }) {
+  const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
+
   const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório!"),
+    title: yup.string().required("Campo obrigatório!"),
   });
   const {
     register,
     control,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const onSubmitFunction = (data) => {
+    api
+      .post("/users/techs", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((_) => {
+        setModal(false);
+        toast.success("Tecnologia criada");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return modal === true ? (
-    <div className="container-modal">
+    <form className="container-modal" onSubmit={handleSubmit(onSubmitFunction)}>
       <div className="header-modal">
         <div>
           <p>Tecnologia Detalhes</p>
@@ -32,9 +51,9 @@ export default function ModalCreate({ modal, setModal, options }) {
           <Input
             register={register}
             label="Nome"
-            placeholder="Digite aqui seu nome"
-            name="name"
-            error={errors.name?.message}
+            placeholder="Nome da sua tecnologia"
+            name="title"
+            error={errors.title?.message}
           />
         </div>
         <p className="label-select">Status</p>
@@ -42,7 +61,8 @@ export default function ModalCreate({ modal, setModal, options }) {
           control={control}
           error={errors.option?.message}
           options={options}
-          placeholder="Iniciante"
+          placeholder=""
+          valueName="status"
         />
         <div className="container-button">
           <StyledButton
@@ -56,6 +76,6 @@ export default function ModalCreate({ modal, setModal, options }) {
           </StyledButton>
         </div>
       </div>
-    </div>
+    </form>
   ) : null;
 }
