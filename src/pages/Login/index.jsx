@@ -7,10 +7,12 @@ import { FaEye } from "react-icons/fa";
 import "./styles.css";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
-export default function Login() {
+export default function Login({ authenticated, setAuthenticated }) {
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório!"),
     password: yup
@@ -29,8 +31,21 @@ export default function Login() {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    api
+      .post("/sessions", data)
+      .then((response) => {
+        // console.log(response.data.token);
+        const { token } = response.data;
+        localStorage.setItem("Hub:token", JSON.stringify(token));
+        setAuthenticated(true);
+        return history.push("/home");
+      })
+      .cath((err) => toast.err("Email ou senha inválidos"));
   };
+
+  if (authenticated) {
+    return <Redirect to="/home" />;
+  }
 
   const redirect = () => {
     history.push("/");

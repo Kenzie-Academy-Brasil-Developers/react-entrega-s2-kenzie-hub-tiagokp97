@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { StyledButton } from "../../components/Button/styles";
 import { StyledForm } from "../../components/Form/styles";
 import Input from "../../components/Input";
@@ -11,7 +11,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-export default function Register() {
+export default function Register({ authenticated }) {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
     email: yup.string().email("Email inválido").required("Campo obrigatório!"),
@@ -32,7 +32,7 @@ export default function Register() {
       .post("/users", data)
       .then((_) => {
         toast.success("Conta criada com sucesso");
-        return history.pushState("/login");
+        return history.push("/login");
       })
       .catch((err) => toast.error("Erro ao criar a conta, tente outro email"));
   };
@@ -45,6 +45,10 @@ export default function Register() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  if (authenticated) {
+    return <Redirect to="/home" />;
+  }
 
   return (
     <>
