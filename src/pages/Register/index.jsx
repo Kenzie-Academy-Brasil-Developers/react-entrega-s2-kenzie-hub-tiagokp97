@@ -9,6 +9,7 @@ import StyledSelect from "../../components/Select/Select";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
 export default function Register() {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
