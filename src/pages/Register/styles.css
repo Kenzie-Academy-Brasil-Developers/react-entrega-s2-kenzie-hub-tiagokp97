@@ -6,13 +6,13 @@
 }
 
 header {
-  margin-top: 55px;
+  margin-top: 25px;
   margin-bottom: 31px;
   display: flex;
   justify-content: center;
 }
 .container-header {
-  width: 300px;
+  width: 334px;
   display: flex;
   align-self: center;
   justify-content: space-between;
@@ -81,7 +81,6 @@ select {
   align-self: flex-start;
   color: var(--white);
   position: relative;
-  left: -15px;
 }
 
 textarea {
@@ -92,4 +91,37 @@ textarea {
   background-color: var(--grey-20);
   border: none;
   border-radius: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 9px;
+  color: var(--white);
+  font-size: 16px;
+}
+textarea::placeholder {
+  font-size: 14px;
+  color: var(--grey-10);
+}
+
+.split-form {
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

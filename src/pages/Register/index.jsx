@@ -6,7 +6,7 @@ import { StyledForm } from "../../components/Form/styles";
 import Input from "../../components/Input";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
 import StyledSelect from "../../components/Select/Select";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 export default function Register() {
@@ -51,6 +51,7 @@ export default function Register() {
             <h1>Crie sua conta</h1>
             <h2>Rapido e grátis, vamos nessa</h2>
           </div>
+
           <Input
             register={register}
             label="Nome"
@@ -80,10 +81,19 @@ export default function Register() {
             name="passwordConfirm"
             error={errors.passwordConfirm?.message}
           />
+          <Input
+            register={register}
+            label="Contato"
+            placeholder="Deixe seu contato"
+            name="passwordConfirm"
+            error={errors.passwordConfirm?.message}
+          />
+
           <p className="modulo">Selecionar módulo</p>
           <StyledSelect control={control} error={errors.option?.message} />
-          <p className="modulo">Breve bio</p>
-          <textarea></textarea>
+          <p className="modulo">Bio</p>
+          <textarea placeholder="Fale um pouco sobre você"></textarea>
+
           <StyledButton
             type="submit"
             color={"white"}
