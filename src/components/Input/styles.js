@@ -13,6 +13,10 @@ export const Container = styled.div`
     font-size: 10px;
     align-self: flex-start;
   }
+
+  span {
+    color: var(--pink);
+  }
 `;
 
 export const InputContainer = styled.div`
@@ -26,6 +30,22 @@ export const InputContainer = styled.div`
   align-items: center;
   padding: 1rem;
   border: solid 2px var(--grey-20);
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--white);
+    transition: background-color 500000s;
+  }
+
+}
+
+  
 
   :focus-within {
     border: white solid 2px;
@@ -42,8 +62,13 @@ export const InputContainer = styled.div`
     background: transparent;
     color: var(--white);
 
+}
+
+
+
+
     ::placeholder {
       color: var(--grey-10);
     }
-  }
+  
 `;

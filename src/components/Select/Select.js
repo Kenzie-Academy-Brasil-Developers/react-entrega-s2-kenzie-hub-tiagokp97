@@ -1,14 +1,15 @@
 import React from "react";
-import { FaColumns } from "react-icons/fa";
 import Select from "react-select";
+import { useForm, Controller } from "react-hook-form";
 import "./styles.css";
-const options = [
-  { label: "Primeiro módulo", value: "primeiroModulo" },
-  { label: "Segundo módulo", value: "segundoModulo" },
-  { label: "Terceiro módulo", value: "terceiroModulo" },
-];
 
-export default function StyledSelect() {
+export default function StyledSelect({ control }) {
+  const options = [
+    { label: "Primeiro módulo", value: "Trimeiro Modulo" },
+    { label: "Segundo módulo", value: "Segundo Modulo" },
+    { label: "Terceiro módulo", value: "Terceiro Modulo" },
+  ];
+
   const customStyles = {
     menu: (provided, state) => ({
       ...provided,
@@ -39,12 +40,25 @@ export default function StyledSelect() {
 
   return (
     <div className="container-select">
-      <Select
-        options={options}
-        styles={customStyles}
-        width="265px"
-        menuColor="#868E96"
-        menuPlacement="top"
+      <Controller
+        name="course_module"
+        control={control}
+        render={({ field: { onChange, value, name, ref } }) => (
+          <Select
+            options={options}
+            styles={customStyles}
+            width="265px"
+            menuColor="#868E96"
+            menuPlacement="top"
+            value={options.find((module) => module.value === value)}
+            onChange={(options) => {
+              onChange(options.value);
+            }}
+            placeholder="Selecione o seu módulo"
+            isSearchable
+          />
+        )}
+        name={"module"}
       />
     </div>
   );
