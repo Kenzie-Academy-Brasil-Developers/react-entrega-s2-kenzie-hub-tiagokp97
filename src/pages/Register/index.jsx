@@ -1,15 +1,16 @@
 import React from "react";
 import "./styles.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { StyledButton } from "../../components/Button/styles";
 import { StyledForm } from "../../components/Form/styles";
 import Input from "../../components/Input";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
 import StyledSelect from "../../components/Select/Select";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 export default function Register() {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
@@ -24,12 +25,16 @@ export default function Register() {
       .required("Campo obrigatório!"),
   });
 
+  const history = useHistory();
+
   const onSubmitFunction = (data) => {
-    // const user = { name };
     api
       .post("/users", data)
-      .then((response) => console.log(response.data.id))
-      .catch((err) => console.log(err));
+      .then((_) => {
+        toast.success("Conta criada com sucesso");
+        return history.pushState("/login");
+      })
+      .catch((err) => toast.error("Erro ao criar a conta, tente outro email"));
   };
 
   const {
