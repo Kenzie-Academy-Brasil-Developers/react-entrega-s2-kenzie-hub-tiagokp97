@@ -5,9 +5,16 @@ import "./styles.css";
 
 export default function StyledSelect({ control }) {
   const options = [
-    { label: "Primeiro módulo", value: "Trimeiro Modulo" },
-    { label: "Segundo módulo", value: "Segundo Modulo" },
-    { label: "Terceiro módulo", value: "Terceiro Modulo" },
+    {
+      value: "Primeiro módulo (Introdução ao Frontend)",
+      label: "Primeiro módulo",
+    },
+    { value: "Segundo módulo (Frontend Avançado)", label: "Segundo módulo" },
+    {
+      value: "Terceiro módulo (Introdução ao Backend)",
+      label: "Terceiro módulo",
+    },
+    { value: "Quarto módulo (Backend Avançado)", label: "Quarto módulo" },
   ];
 
   const customStyles = {
