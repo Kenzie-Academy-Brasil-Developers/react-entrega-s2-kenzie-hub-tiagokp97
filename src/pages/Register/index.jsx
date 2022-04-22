@@ -50,6 +50,19 @@ export default function Register({ authenticated }) {
     return <Redirect to="/home" />;
   }
 
+  const options = [
+    {
+      value: "Primeiro módulo (Introdução ao Frontend)",
+      label: "Primeiro módulo",
+    },
+    { value: "Segundo módulo (Frontend Avançado)", label: "Segundo módulo" },
+    {
+      value: "Terceiro módulo (Introdução ao Backend)",
+      label: "Terceiro módulo",
+    },
+    { value: "Quarto módulo (Backend Avançado)", label: "Quarto módulo" },
+  ];
+
   return (
     <>
       <header>
@@ -91,6 +104,7 @@ export default function Register({ authenticated }) {
           <Input
             register={register}
             label="Confirmar senha"
+            type="password"
             placeholder="Digite aqui seu nome"
             name="passwordConfirm"
             error={errors.passwordConfirm?.message}
@@ -104,7 +118,12 @@ export default function Register({ authenticated }) {
           />
 
           <p className="modulo">Selecionar módulo</p>
-          <StyledSelect control={control} error={errors.option?.message} />
+          <StyledSelect
+            control={control}
+            error={errors.option?.message}
+            options={options}
+            placeholder="Selecione o seu módulo"
+          />
           <p className="modulo">Bio</p>
 
           <textarea
@@ -118,6 +137,7 @@ export default function Register({ authenticated }) {
             color={"white"}
             background={"#59323F"}
             brightness={"brightness(0.8)"}
+            width="265px"
           >
             Cadastrar
           </StyledButton>

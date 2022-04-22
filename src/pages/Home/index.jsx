@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
-import { Link, Redirect } from "react-router-dom";
-import Input from "../../components/Input";
+import { Redirect } from "react-router-dom";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
-import Button from "../../components/Button";
 import defaultButton from "../../assets/defaultButton.svg";
+import ModalTecnologies from "../../components/ModalTecnologies";
+import ModalCreate from "../../components/ModalCreate";
 export default function Home({ authenticated, setAuthenticated }) {
+  const [createModal, setCreateModal] = useState(false);
+  const [modal, setModal] = useState(false);
   if (!authenticated) {
     return <Redirect to="/login" />;
   }
@@ -14,6 +16,18 @@ export default function Home({ authenticated, setAuthenticated }) {
     localStorage.clear();
     setAuthenticated(false);
   };
+
+  const options = [
+    {
+      value: "Iniciante",
+      label: "Iniciante",
+    },
+    { value: "Intermediário", label: "Intermediário" },
+    {
+      value: "Avançado",
+      label: "Avançado",
+    },
+  ];
 
   return (
     <>
@@ -39,10 +53,15 @@ export default function Home({ authenticated, setAuthenticated }) {
         <div className="header-main">
           <div>
             <span>Tecnologias</span>
-            <img src={defaultButton} alt="button-change-tecnology" />
+            <img
+              src={defaultButton}
+              alt="button-change-tecnology"
+              onClick={() => setModal(true)}
+            />
           </div>
         </div>
-
+        <ModalTecnologies modal={modal} setModal={setModal} options={options} />
+        {/* <ModalCreate modal={modal} setModal={setModal} options={options} /> */}
         <ul>
           <div></div>
           <li>

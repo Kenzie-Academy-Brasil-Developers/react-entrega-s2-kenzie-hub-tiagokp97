@@ -24,6 +24,10 @@ nav > div > button {
   color: var(--white);
 }
 
+nav > div > button:hover {
+  filter: brightness(0.8);
+}
+
 .home-header {
   display: flex;
   align-items: center;
@@ -81,6 +85,7 @@ nav > div > button {
 
 .header-main > div > img:hover {
   filter: brightness(1.2);
+  cursor: pointer;
 }
 
 ul {

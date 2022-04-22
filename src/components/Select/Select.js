@@ -3,20 +3,7 @@ import Select from "react-select";
 import { Controller } from "react-hook-form";
 import "./styles.css";
 
-export default function StyledSelect({ control }) {
-  const options = [
-    {
-      value: "Primeiro módulo (Introdução ao Frontend)",
-      label: "Primeiro módulo",
-    },
-    { value: "Segundo módulo (Frontend Avançado)", label: "Segundo módulo" },
-    {
-      value: "Terceiro módulo (Introdução ao Backend)",
-      label: "Terceiro módulo",
-    },
-    { value: "Quarto módulo (Backend Avançado)", label: "Quarto módulo" },
-  ];
-
+export default function StyledSelect({ control, options, placeholder }) {
   const customStyles = {
     menu: (provided, state) => ({
       ...provided,
@@ -61,7 +48,7 @@ export default function StyledSelect({ control }) {
             onChange={(options) => {
               onChange(options.value);
             }}
-            placeholder="Selecione o seu módulo"
+            placeholder={placeholder}
             isSearchable
           />
         )}

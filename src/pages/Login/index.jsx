@@ -84,6 +84,7 @@ export default function Login({ authenticated, setAuthenticated }) {
             color={"white"}
             background={"#FF577F"}
             hover={"#FF427F"}
+            width="265px"
           >
             Entrar
           </StyledButton>
@@ -94,6 +95,7 @@ export default function Login({ authenticated, setAuthenticated }) {
             color={"white"}
             background={"#868E96"}
             hover={"#343B41"}
+            width="265px"
           >
             Cadastre-se
           </StyledButton>
