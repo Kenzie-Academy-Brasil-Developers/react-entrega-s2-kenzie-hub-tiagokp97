@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
 import { StyledButton } from "../../components/Button/styles";
 import { StyledForm } from "../../components/Form/styles";
@@ -81,17 +81,18 @@ export default function Login({ authenticated, setAuthenticated }) {
             icon={FaEye}
             label="Senha"
             placeholder="Digite aqui seu senha"
-            type="password"
+            // type={show}
             name="password"
             error={errors.password?.message}
+            // setShow={setShow}
           />
 
           <StyledButton
             color={"white"}
             background={"#FF577F"}
-            hover={"#868E96"}
             width="265px"
             shadow="0px 15px 20px rgba(255, 66, 127, 0.4)"
+            hover="#FF577F"
           >
             Entrar
           </StyledButton>
