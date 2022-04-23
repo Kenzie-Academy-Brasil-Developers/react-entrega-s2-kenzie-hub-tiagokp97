@@ -40,6 +40,15 @@
   transform: translate(-50%, -30%);
 }
 
+.container-select {
+  min-width: 265px;
+}
+
+.position {
+  margin-right: 64px;
+}
+
+/* margin-left: 55px; */
 .container-input-modal {
   width: 370px;
   background-color: var(--grey-30);
@@ -82,6 +91,10 @@
 @media (max-width: 400px) {
   .container-modal {
     transform: translate(-50%, -70%);
+  }
+
+  .position {
+    margin-left: 65px;
   }
 
   .container-input-modal {

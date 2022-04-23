@@ -59,14 +59,16 @@ export default function ModalCreate({ modal, setModal, options, loadWorks }) {
           />
         </div>
         <p className="label-select">Status</p>
-        <StyledSelect
-          control={control}
-          error={errors.option?.message}
-          options={options}
-          placeholder=""
-          valueName="status"
-          shadow="box-shadow: 0px 15px 20px rgba(255, 66, 127, 0.4)"
-        />
+        <div className="position">
+          <StyledSelect
+            control={control}
+            error={errors.option?.message}
+            options={options}
+            placeholder=""
+            valueName="status"
+            shadow="box-shadow: 0px 15px 20px rgba(255, 66, 127, 0.4)"
+          />
+        </div>
         <div className="container-button">
           <StyledButton
             className="button-register"

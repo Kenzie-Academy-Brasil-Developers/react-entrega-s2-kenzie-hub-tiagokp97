@@ -3,6 +3,31 @@ import Select from "react-select";
 import { Controller } from "react-hook-form";
 import "./styles.css";
 
+const optionsTheme = (theme) => {
+  return {
+    ...theme,
+
+    colors: {
+      danger: "transparent",
+      dangerLight: "transparent",
+      neutral0: "#343B41",
+      neutral5: "transparent",
+      neutral10: "transparent",
+      neutral20: "transparent",
+      neutral30: "#FFFFFF",
+      neutral40: "#FFFFFF",
+      neutral50: "#FFFFFF",
+      neutral60: "#FFFFFF",
+      neutral70: "hsl(0, 0%, 30%)",
+      neutral80: "#FFFFF",
+      neutral90: "transparent",
+      primary: "#FF577F",
+      primary50: "#FFFFFF",
+      primary75: "transparent",
+    },
+  };
+};
+
 export default function StyledSelect({
   control,
   options,
@@ -12,10 +37,8 @@ export default function StyledSelect({
   const customStyles = {
     menu: (provided, state) => ({
       ...provided,
-      width: state.selectProps.width,
-      color: state.selectProps.menuColor,
+
       padding: 20,
-      backgroundColor: "#343B41",
     }),
 
     option: (provided, state) => ({
@@ -44,8 +67,9 @@ export default function StyledSelect({
         control={control}
         render={({ field: { onChange, value, name, ref } }) => (
           <Select
+            theme={optionsTheme}
             options={options}
-            styles={customStyles}
+            // styles={customStyles}
             width="265px"
             menuColor="#868E96"
             menuPlacement="top"
