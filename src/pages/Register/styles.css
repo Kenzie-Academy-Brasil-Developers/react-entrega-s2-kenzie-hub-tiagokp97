@@ -88,6 +88,10 @@ select {
   position: relative;
 }
 
+.modulo > span {
+  color: var(--pink);
+}
+
 textarea {
   width: 265px;
   height: 60px;

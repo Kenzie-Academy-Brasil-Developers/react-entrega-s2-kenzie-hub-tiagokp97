@@ -23,6 +23,8 @@ export default function Register({ authenticated }) {
       .string()
       .oneOf([yup.ref("password")], "Senhas não coincidem")
       .required("Campo obrigatório!"),
+    selected: yup.string().required("Campo obrigatório!"),
+    bio: yup.string().required("Campo obrigatório!"),
   });
 
   const history = useHistory();
@@ -123,18 +125,25 @@ export default function Register({ authenticated }) {
             error={errors.passwordConfirm?.message}
           />
 
-          <p className="modulo">Selecionar módulo</p>
+          <p className="modulo">
+            Selecionar módulo<span> - {errors.selected?.message}</span>
+          </p>
           <StyledSelect
             control={control}
             error={errors.option?.message}
             options={options}
             placeholder="Selecione o seu módulo"
             valueName="course_module"
+            name="selected"
+            {...register("selected")}
           />
-          <p className="modulo">Bio</p>
+          <p className="modulo">
+            Bio <span>- {errors.bio?.message}</span>
+          </p>
 
           <textarea
             {...register("bio")}
+            error
             placeholder="Fale um pouco sobre você"
             name="bio"
           />

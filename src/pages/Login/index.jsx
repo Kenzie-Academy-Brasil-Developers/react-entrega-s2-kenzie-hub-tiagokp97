@@ -45,7 +45,7 @@ export default function Login({ authenticated, setAuthenticated }) {
         setAuthenticated(true);
         return history.push(`/home/${response.data.user.name}`);
       })
-      .cath((err) => toast.err("Email ou senha inválidos"));
+      .catch((err) => toast.error("Email ou senha inválidos"));
   };
 
   if (authenticated) {
