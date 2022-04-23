@@ -8,7 +8,7 @@ import StyledSelect from "../Select/Select";
 import { StyledButton } from "../Button/styles";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-export default function ModalCreate({ modal, setModal, options }) {
+export default function ModalCreate({ modal, setModal, options, loadWorks }) {
   const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
 
   const schema = yup.object().shape({
@@ -31,6 +31,7 @@ export default function ModalCreate({ modal, setModal, options }) {
         },
       })
       .then((_) => {
+        loadWorks();
         setModal(false);
         toast.success("Tecnologia criada");
       })

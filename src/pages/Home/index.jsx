@@ -14,13 +14,14 @@ export default function Home({ authenticated, setAuthenticated }) {
   const [modal, setModal] = useState(false);
   const [id] = useState(JSON.parse(localStorage.getItem("Hub:userID")) || "");
   const [techs, setTechs] = useState([]);
-
+  const [techName, setTechName] = useState("");
   const module = localStorage.getItem("Hub:course");
 
+  const loadWorks = () => {
+    api.get(`/users/${id}`).then((response) => setTechs(response.data.techs));
+  };
+
   useEffect(() => {
-    const loadWorks = () => {
-      api.get(`/users/${id}`).then((response) => setTechs(response.data.techs));
-    };
     return loadWorks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,8 +35,9 @@ export default function Home({ authenticated, setAuthenticated }) {
     setAuthenticated(false);
   };
 
-  const pathModal = (id) => {
+  const patchModal = (id, title) => {
     setTechId(id);
+    setTechName(title);
     setCreateModal(true);
   };
 
@@ -80,6 +82,7 @@ export default function Home({ authenticated, setAuthenticated }) {
                 src={defaultButton}
                 alt="button-change-tecnology"
                 onClick={() => setModal(true)}
+                className="button-add-tech"
               />
             </div>
           </div>
@@ -90,13 +93,22 @@ export default function Home({ authenticated, setAuthenticated }) {
             techId={techId}
             setTechs={setTechs}
             techs={techs}
+            techName={techName}
           />
-          <ModalCreate modal={modal} setModal={setModal} options={options} />
+          <ModalCreate
+            modal={modal}
+            setModal={setModal}
+            options={options}
+            loadWorks={loadWorks}
+          />
           <ul>
             <div></div>
             {techs.map((tech) => {
               return (
-                <li key={tech.id} onClick={() => pathModal(tech.id)}>
+                <li
+                  key={tech.id}
+                  onClick={() => patchModal(tech.id, tech.title)}
+                >
                   <p>{tech.title}</p>
                   <span>{tech.status}</span>
                 </li>

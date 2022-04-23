@@ -69,6 +69,10 @@
   margin-bottom: 32px;
 }
 
+.button-add-tech:hover {
+  box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.4);
+}
+
 @media (min-width: 800px) {
   .container-modal {
     transform: translate(-50%, -26%);

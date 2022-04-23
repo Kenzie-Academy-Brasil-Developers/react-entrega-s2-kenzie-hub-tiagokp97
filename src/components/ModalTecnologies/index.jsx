@@ -16,10 +16,12 @@ export default function ModalTecnologies({
   techId,
   setTechs,
   techs,
+  techName,
 }) {
   const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
+    // selected: yup.required("Campo obrigatório!"),
   });
   const {
     register,
@@ -76,13 +78,15 @@ export default function ModalTecnologies({
           <Input
             register={register}
             label="Nome"
-            placeholder="Atualize o nome da sua Tech"
+            placeholder={techName}
             name="name"
+            disabled
             error={errors.name?.message}
           />
         </div>
         <p className="label-select">Selecionar status</p>
         <StyledSelect
+          name="selected"
           control={control}
           error={errors.option?.message}
           options={options}

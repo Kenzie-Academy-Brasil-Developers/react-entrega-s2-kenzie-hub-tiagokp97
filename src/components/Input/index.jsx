@@ -10,7 +10,7 @@ export default function Input({
   name,
   ...rest
 }) {
-  const [show, setShow] = useState("text");
+  const [show, setShow] = useState("password");
 
   const teste = () => {
     show === "text" ? setShow("password") : setShow("text");
