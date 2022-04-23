@@ -23,7 +23,7 @@ export default function Register({ authenticated }) {
       .string()
       .oneOf([yup.ref("password")], "Senhas não coincidem")
       .required("Campo obrigatório!"),
-    selected: yup.string().required("Campo obrigatório!"),
+    course_module: yup.string().required("Campo obrigatório!"),
     bio: yup.string().required("Campo obrigatório!"),
   });
 
@@ -34,6 +34,7 @@ export default function Register({ authenticated }) {
       .post("/users", data)
       .then((_) => {
         toast.success("Conta criada com sucesso");
+
         return history.push("/login");
       })
       .catch((err) => toast.error("Erro ao criar a conta, tente outro email"));

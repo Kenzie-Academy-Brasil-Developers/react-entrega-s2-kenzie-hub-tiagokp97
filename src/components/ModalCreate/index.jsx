@@ -13,6 +13,7 @@ export default function ModalCreate({ modal, setModal, options, loadWorks }) {
 
   const schema = yup.object().shape({
     title: yup.string().required("Campo obrigatório!"),
+    status: yup.string().required("Campo obrigatório!"),
   });
   const {
     register,
@@ -35,7 +36,7 @@ export default function ModalCreate({ modal, setModal, options, loadWorks }) {
         setModal(false);
         toast.success("Tecnologia criada");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error("Tecnologia já adicionada, tente edita-la"));
   };
 
   return modal === true ? (
@@ -51,20 +52,23 @@ export default function ModalCreate({ modal, setModal, options, loadWorks }) {
         <div>
           <Input
             register={register}
-            label="Nome"
-            placeholder="Nome da sua tecnologia"
+            label="Nome da sua tecnologia"
+            placeholder="Ex: React"
             name="title"
             error={errors.title?.message}
-            disabled
           />
         </div>
-        <p className="label-select">Status</p>
+        <p className="label-select">
+          Status <span> -{errors.status?.message}</span>
+        </p>
         <div className="position">
           <StyledSelect
             control={control}
             error={errors.option?.message}
             options={options}
-            placeholder=""
+            placeholder="Defina seu nivel"
+            name="status"
+            {...register("selected")}
             valueName="status"
             shadow="box-shadow: 0px 15px 20px rgba(255, 66, 127, 0.4)"
           />

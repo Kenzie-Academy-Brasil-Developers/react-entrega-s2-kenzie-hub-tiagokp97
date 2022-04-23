@@ -21,7 +21,6 @@ export default function ModalTecnologies({
   const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
-    // selected: yup.required("Campo obrigatório!"),
   });
   const {
     register,
@@ -85,14 +84,16 @@ export default function ModalTecnologies({
           />
         </div>
         <p className="label-select">Selecionar status</p>
-        <StyledSelect
-          name="selected"
-          control={control}
-          error={errors.option?.message}
-          options={options}
-          valueName={"status"}
-          placeholder="Iniciante"
-        />
+        <div className="position">
+          <StyledSelect
+            name="selected"
+            control={control}
+            error={errors.option?.message}
+            options={options}
+            valueName={"status"}
+            placeholder="Iniciante"
+          />
+        </div>
         <div className="container-button">
           <StyledButton
             className="button-patch"

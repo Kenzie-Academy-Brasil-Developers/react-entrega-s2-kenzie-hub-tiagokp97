@@ -6,3 +6,7 @@
 .Toastify__toast--error {
   background-color: #343b41 !important;
 }
+
+.label-select > span {
+  color: var(--pink);
+}

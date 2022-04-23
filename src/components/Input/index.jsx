@@ -24,7 +24,9 @@ export default function Input({
         <input
           {...register(name)}
           {...rest}
-          type={label === "Senha" ? show : "text"}
+          type={
+            label === "Senha" || label === "Confirmar senha" ? show : "text"
+          }
         />
         {Icon ? (
           show === "text" ? (

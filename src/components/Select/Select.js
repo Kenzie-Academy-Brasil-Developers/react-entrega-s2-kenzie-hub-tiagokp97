@@ -81,7 +81,6 @@ export default function StyledSelect({
             isSearchable
           />
         )}
-        // name={"module"}
       />
     </div>
   );
