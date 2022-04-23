@@ -7,7 +7,7 @@
 
 header {
   margin-top: 25px;
-  margin-bottom: 31px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
 }
@@ -57,9 +57,13 @@ a {
   font-weight: 600;
   line-height: 25px;
   text-align: center;
+  transition: 0.4s;
 }
 a:hover {
   filter: brightness(1.2);
+  background-color: var(--pink);
+  box-shadow: 0px 15px 20px rgba(255, 66, 127, 0.4);
+  color: #fff;
 }
 
 select {

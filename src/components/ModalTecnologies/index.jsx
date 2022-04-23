@@ -97,6 +97,8 @@ export default function ModalTecnologies({
             background={"#59323F"}
             brightness={"brightness(0.8)"}
             width="205px"
+            shadow="0px 5px 20px rgba(255, 66, 127, 0.4)"
+            hover="#FF577F"
           >
             Salvar alterações
           </StyledButton>
@@ -106,8 +108,8 @@ export default function ModalTecnologies({
             type="submit"
             color={"white"}
             background={"#868E96"}
-            brightness={"brightness(0.8)"}
             width="98px"
+            shadow="0px 5px 20px rgba(255, 255, 255, 0.4)"
           >
             Excluir
           </StyledButton>

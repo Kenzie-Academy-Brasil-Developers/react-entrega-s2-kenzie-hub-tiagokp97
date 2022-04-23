@@ -8,9 +8,11 @@ export const StyledButton = styled.button`
   height: 38px;
   border: none;
   border-radius: 4px;
+  transition: 0.4s;
 
-  :hover {
+  &:hover {
     background-color: ${(props) => props.hover};
     filter: ${(props) => props.brightness};
+    box-shadow: ${(props) => props.shadow};
   }
 `;

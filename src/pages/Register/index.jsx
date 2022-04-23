@@ -145,6 +145,8 @@ export default function Register({ authenticated }) {
             background={"#59323F"}
             brightness={"brightness(0.8)"}
             width="265px"
+            shadow="0px 15px 20px rgba(255, 66, 127, 0.4)"
+            hover="#FF577F"
           >
             Cadastrar
           </StyledButton>

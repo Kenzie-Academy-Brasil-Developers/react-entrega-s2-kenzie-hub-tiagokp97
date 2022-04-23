@@ -63,6 +63,7 @@ export default function ModalCreate({ modal, setModal, options }) {
           options={options}
           placeholder=""
           valueName="status"
+          shadow="box-shadow: 0px 15px 20px rgba(255, 66, 127, 0.4)"
         />
         <div className="container-button">
           <StyledButton
@@ -72,6 +73,7 @@ export default function ModalCreate({ modal, setModal, options }) {
             background={"#FF577F"}
             brightness={"brightness(0.8)"}
             width="320px"
+            shadow="0px 5px 20px rgba(255, 66, 127, 0.4)"
           >
             Cadastrar Tecnologia
           </StyledButton>
