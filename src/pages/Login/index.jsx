@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import kenzieIcon from "../../assets/kenzieIcon.svg";
 import { StyledButton } from "../../components/Button/styles";
 import { StyledForm } from "../../components/Form/styles";

@@ -55,6 +55,7 @@ export default function ModalCreate({ modal, setModal, options, loadWorks }) {
             placeholder="Nome da sua tecnologia"
             name="title"
             error={errors.title?.message}
+            disabled
           />
         </div>
         <p className="label-select">Status</p>
