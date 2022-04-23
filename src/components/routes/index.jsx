@@ -17,7 +17,7 @@ export default function Routes() {
 
   return (
     <Switch>
-      <Route exact path="/home">
+      <Route exact path="/home/:username">
         <Home
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}

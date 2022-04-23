@@ -18,7 +18,6 @@ export default function ModalTecnologies({
   techs,
 }) {
   const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
-  const [newData, setNewData] = useState({});
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
   });
@@ -30,22 +29,6 @@ export default function ModalTecnologies({
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const patchTech = () => {
-    const newTechs = techs.filter((tech) => tech.id !== techId);
-    api
-      .put(`/users/techs/${techId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-
-      .then((res) => {
-        setCreateModal(false);
-        setTechs(newTechs);
-        toast.success("Tecnologia atualizada com sucesso");
-      });
-  };
 
   const deleteTech = () => {
     const newTechs = techs.filter((tech) => tech.id !== techId);
@@ -108,6 +91,7 @@ export default function ModalTecnologies({
         />
         <div className="container-button">
           <StyledButton
+            className="button-patch"
             onClick={handleSubmit(onSubmitFunction)}
             color={"white"}
             background={"#59323F"}
@@ -117,6 +101,7 @@ export default function ModalTecnologies({
             Salvar alterações
           </StyledButton>
           <StyledButton
+            className="button-delete"
             onClick={() => deleteTech()}
             type="submit"
             color={"white"}

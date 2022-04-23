@@ -34,18 +34,23 @@ export default function Login({ authenticated, setAuthenticated }) {
     api
       .post("/sessions", data)
       .then((response) => {
+        const { course_module } = response.data.user;
         const { id } = response.data.user;
         const { token } = response.data;
+        const { name } = response.data.user;
+        localStorage.setItem("Hub:course", course_module);
+        localStorage.setItem("Hub:username", name);
         localStorage.setItem("Hub:token", JSON.stringify(token));
         localStorage.setItem("Hub:userID", JSON.stringify(id));
         setAuthenticated(true);
-        return history.push("/home");
+        return history.push(`/home/${response.data.user.name}`);
       })
       .cath((err) => toast.err("Email ou senha inválidos"));
   };
 
   if (authenticated) {
-    return <Redirect to="/home" />;
+    const username = localStorage.getItem("Hub:username");
+    return <Redirect to={`/home/${username}`} />;
   }
 
   const redirect = () => {

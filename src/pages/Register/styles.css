@@ -16,6 +16,7 @@ header {
   display: flex;
   align-self: center;
   justify-content: space-between;
+  animation: myAnim 1s ease 0s 1 normal forwards;
 }
 
 .header {
@@ -109,6 +110,7 @@ textarea::placeholder {
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 15px;
 }
 
 /* Track */

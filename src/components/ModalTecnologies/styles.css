@@ -74,3 +74,37 @@
     transform: translate(-50%, -26%);
   }
 }
+
+@media (max-width: 400px) {
+  .container-modal {
+    transform: translate(-50%, -70%);
+  }
+
+  .container-input-modal {
+    width: 300px;
+  }
+
+  .container-input-modal > div > div > div {
+    width: 265px;
+  }
+
+  .header-modal {
+    width: 300px;
+  }
+
+  .header-modal > div {
+    width: 250px;
+  }
+
+  .button-patch {
+    width: 165px !important;
+  }
+
+  .button-delete {
+    width: 80px !important;
+  }
+
+  .button-register {
+    width: 260px !important;
+  }
+}

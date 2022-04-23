@@ -66,6 +66,7 @@ export default function ModalCreate({ modal, setModal, options }) {
         />
         <div className="container-button">
           <StyledButton
+            className="button-register"
             type="submit"
             color={"white"}
             background={"#FF577F"}

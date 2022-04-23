@@ -8,10 +8,15 @@ export const StyledForm = styled.form`
   background-color: var(--grey-30);
   padding: 33px;
   border-radius: 4px;
+  animation: myAnim 1s ease 0s 1 normal forwards;
 
-  @media (max-width: 600px) {
-    body {
-      background-color: red !important;
+  @keyframes myAnim {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
     }
   }
 `;

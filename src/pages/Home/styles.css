@@ -1,6 +1,7 @@
 nav {
   display: flex;
   justify-content: center;
+  animation: myAnim 1s ease 0s 1 normal forwards;
 }
 
 nav > div {
