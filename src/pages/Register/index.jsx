@@ -11,6 +11,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import { FaEye } from "react-icons/fa";
 export default function Register({ authenticated }) {
   const schema = yup.object().shape({
     name: yup.string().required("Campo obrigatório!"),
@@ -108,11 +109,13 @@ export default function Register({ authenticated }) {
             placeholder="Digite aqui seu senha"
             type="password"
             name="password"
+            icon={FaEye}
             error={errors.password?.message}
           />
           <Input
             register={register}
             label="Confirmar senha"
+            icon={FaEye}
             type="password"
             placeholder="Digite aqui seu nome"
             name="passwordConfirm"
