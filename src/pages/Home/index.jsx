@@ -93,6 +93,7 @@ export default function Home({ authenticated, setAuthenticated }) {
             techId={techId}
             setTechs={setTechs}
             techs={techs}
+            loadWorks={loadWorks}
             techName={techName}
           />
           <ModalCreate

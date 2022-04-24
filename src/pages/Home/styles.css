@@ -96,7 +96,8 @@ nav > div > button:hover {
 ul {
   background-color: var(--grey-20);
   border-radius: 4px;
-  max-height: 275px;
+  max-height: 350px;
+  min-height: 150px;
   overflow-y: scroll;
   width: 95%;
   margin: 0 auto;

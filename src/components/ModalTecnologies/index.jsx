@@ -17,10 +17,11 @@ export default function ModalTecnologies({
   setTechs,
   techs,
   techName,
+  loadWorks,
 }) {
   const [token] = useState(JSON.parse(localStorage.getItem("Hub:token")) || "");
   const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório!"),
+    name: yup.string(),
   });
   const {
     register,
@@ -59,6 +60,7 @@ export default function ModalTecnologies({
       .then((res) => {
         setCreateModal(false);
         setTechs(newTechs);
+        loadWorks();
         toast.success("Tecnologia atualizada com sucesso");
       });
   };

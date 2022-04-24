@@ -17,7 +17,7 @@ export default function Input({
   };
   return (
     <Container>
-      <p>
+      <p className="error-text">
         {label} {!!error && <span> - {error}</span>}
       </p>
       <InputContainer>

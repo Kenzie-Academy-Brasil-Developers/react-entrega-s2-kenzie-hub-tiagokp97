@@ -14,17 +14,20 @@ import { toast } from "react-toastify";
 import { FaEye } from "react-icons/fa";
 export default function Register({ authenticated }) {
   const schema = yup.object().shape({
-    name: yup.string().required("Campo obrigatório!"),
-    email: yup.string().email("Email inválido").required("Campo obrigatório!"),
+    name: yup.string().required("Digite seu nome!"),
+    email: yup.string().email("Email inválido").required("Deixa seu email!"),
     password: yup
       .string()
       .min(8, "Mínimo de 8 dígitos")
-      .required("Campo obrigatório!"),
+      .required("Campo obrigatório!")
+      .matches(
+        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+      ),
     passwordConfirm: yup
       .string()
       .oneOf([yup.ref("password")], "Senhas não coincidem")
       .required("Campo obrigatório!"),
-    course_module: yup.string().required("Campo obrigatório!"),
+    course_module: yup.string().required("Selecione o seu módulo!"),
     bio: yup.string().required("Campo obrigatório!"),
   });
 
@@ -142,8 +145,9 @@ export default function Register({ authenticated }) {
             {...register("selected")}
           />
           <p className="modulo">
-            Bio <span>- {errors.bio?.message}</span>
+            Bio {!!errors && <span> - {errors.bio?.message} </span>}
           </p>
+          {/* {label} {!!error && <span> - {error}</span>} */}
 
           <textarea
             {...register("bio")}

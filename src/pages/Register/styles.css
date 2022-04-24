@@ -116,6 +116,10 @@ textarea::placeholder {
   flex-direction: column;
 }
 
+.error-text > span {
+  white-space: wrap;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 15px;
