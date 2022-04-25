@@ -18,7 +18,7 @@ export default function Register({ authenticated }) {
     email: yup.string().email("Email inválido").required("Deixa seu email!"),
     password: yup
       .string()
-      .min(8, "Mínimo de 8 dígitos")
+      .min(8, "Campo obrigatório")
       .required("Campo obrigatório!")
       .matches(
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",
