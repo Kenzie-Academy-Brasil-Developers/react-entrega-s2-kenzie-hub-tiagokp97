@@ -22,7 +22,7 @@ export default function Register({ authenticated }) {
       .required("Campo obrigatório!")
       .matches(
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",
-        "Falta caractere capital, minusculo e especial"
+        "Falta um número, caractere capital, minusculo e especial"
       ),
     passwordConfirm: yup
       .string()
@@ -55,7 +55,8 @@ export default function Register({ authenticated }) {
   });
 
   if (authenticated) {
-    return <Redirect to="/home" />;
+    const username = localStorage.getItem("Hub:username");
+    return <Redirect to={`/home/${username}`} />;
   }
 
   const options = [

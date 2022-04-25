@@ -12,6 +12,8 @@ export const Container = styled.div`
     margin-bottom: 18px;
     font-size: 10px;
     align-self: flex-start;
+    max-width: 200px;
+    min-height: 25px;
   }
 
   span {
