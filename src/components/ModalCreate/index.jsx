@@ -43,7 +43,7 @@ export default function ModalCreate({ modal, setModal, options, loadWorks }) {
     <form className="container-modal" onSubmit={handleSubmit(onSubmitFunction)}>
       <div className="header-modal">
         <div>
-          <p>Tecnologia Detalhes</p>
+          <p>Adicionar Tecnologia</p>
           <button onClick={() => setModal(false)}>X</button>
         </div>
       </div>

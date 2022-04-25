@@ -69,7 +69,7 @@ export default function ModalTecnologies({
     <div className="container-modal">
       <div className="header-modal">
         <div>
-          <p>Tecnologia Detalhes</p>
+          <p>Editar Tecnologia</p>
           <button onClick={() => setCreateModal(false)}>X</button>
         </div>
       </div>

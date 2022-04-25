@@ -21,7 +21,8 @@ export default function Register({ authenticated }) {
       .min(8, "Mínimo de 8 dígitos")
       .required("Campo obrigatório!")
       .matches(
-        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",
+        "Falta caractere capital, minusculo e especial"
       ),
     passwordConfirm: yup
       .string()
